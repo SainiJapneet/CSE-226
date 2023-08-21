@@ -21,8 +21,8 @@ class GridView : AppCompatActivity() {
         recyclerView2 = findViewById(R.id.recyclerView2)
         recyclerView2.setHasFixedSize(true)
 
-        edtIconName=findViewById(R.id.edtIconName)
-        btnAddIcon=findViewById(R.id.btnAddIcon)
+        edtIconName = findViewById(R.id.edtIconName)
+        btnAddIcon = findViewById(R.id.btnAddIcon)
 
         val layoutManager = GridLayoutManager(this, 2)
         layoutManager.orientation = RecyclerView.VERTICAL
@@ -30,18 +30,18 @@ class GridView : AppCompatActivity() {
 
 
 
-        arrList.add(GridModel("WiFi",R.drawable.wifi))
-        arrList.add(GridModel("Profile",R.drawable.profile))
-        arrList.add(GridModel("Call",R.drawable.call))
-        arrList.add(GridModel("Bluetooth",R.drawable.bluetooth))
-        arrList.add(GridModel("Network",R.drawable.network))
-        arrList.add(GridModel("Battery",R.drawable.battery))
+        arrList.add(GridModel("WiFi", R.drawable.wifi))
+        arrList.add(GridModel("Profile", R.drawable.profile))
+        arrList.add(GridModel("Call", R.drawable.call))
+        arrList.add(GridModel("Bluetooth", R.drawable.bluetooth))
+        arrList.add(GridModel("Network", R.drawable.network))
+        arrList.add(GridModel("Battery", R.drawable.battery))
         btnAddIcon.setOnClickListener {
-            arrList.add(GridModel(edtIconName.text.toString(),R.drawable.ic_launcher_foreground))
-            val adapter = GridAdapter(this,arrList)
+            arrList.add(GridModel(edtIconName.text.toString(), R.drawable.ic_launcher_foreground))
+            val adapter = GridAdapter(this, arrList)
             recyclerView2.adapter = adapter
         }
-        val adapter = GridAdapter(this,arrList)
+        val adapter = GridAdapter(this, arrList)
         recyclerView2.adapter = adapter
 
     }
