@@ -15,12 +15,13 @@ class MyUnBoundServices: android.app.Service(){
         return START_STICKY
     }
     override fun onBind(intent: Intent?): IBinder? {
-        TODO("Not yet implemented")
+        return null
     }
 
 
     override fun onDestroy() {
         super.onDestroy()
+        mediaPlayer.stop()
     }
 
     override fun stopService(name: Intent?): Boolean {
