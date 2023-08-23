@@ -38,9 +38,10 @@ class MyForegroundServices: Service() {
 
     fun createNotificationChannel() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val serviceChannel = NotificationChannel(CHANNEL_ID,"Foreround Service Channel",NotificationManager.IMPORTANCE_DEFAULT)
+            val serviceChannel = NotificationChannel(CHANNEL_ID,"Foreground Service Channel",NotificationManager.IMPORTANCE_HIGH)
             val manager= getSystemService(NotificationManager::class.java)
             manager!!.createNotificationChannel(serviceChannel)
+            Toast.makeText(this,"Notification Channel Implemented",Toast.LENGTH_SHORT).show()
         }
         else{
             Toast.makeText(this,"SDK VERSION LOW",Toast.LENGTH_SHORT).show()
