@@ -14,8 +14,8 @@ class ForegroundServices : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_foreground_services)
 
-        btnStartService = findViewById(R.id.btnStartService)
-        btnStopService = findViewById(R.id.btnStopService)
+        btnStartService = findViewById(R.id.btnPrintTime)
+        btnStopService = findViewById(R.id.btnStopBound)
 
         btnStartService.setOnClickListener {
             val intent = Intent(this,MyForegroundServices::class.java)
