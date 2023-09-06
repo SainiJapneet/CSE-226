@@ -10,6 +10,7 @@ import android.os.IBinder
 import android.widget.Button
 import android.widget.TextView
 
+
 class BoundService : AppCompatActivity() {
 
     lateinit var txtTime: TextView
@@ -21,7 +22,7 @@ class BoundService : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bound_service)
-
+/*
         txtTime = findViewById(R.id.txtTime)
         btnPrintTime = findViewById(R.id.btnPrintTime)
         btnStopBound = findViewById(R.id.btnStopBound)
@@ -63,5 +64,7 @@ class BoundService : AppCompatActivity() {
                 mServiceBound = true
             }
         }
+
+ */
     }
 }
