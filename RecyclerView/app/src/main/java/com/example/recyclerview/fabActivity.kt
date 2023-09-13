@@ -22,22 +22,24 @@ class fabActivity : AppCompatActivity() {
 
 
 
-        if(!fabVisibility){
-            fabAccount.show()
-            fabAccount.visibility= View.VISIBLE
-            fabHome.show()
-            fabHome.visibility= View.VISIBLE
+        fabAdd.setOnClickListener {
+            if(!fabVisibility){
+                fabAccount.show()
+                fabAccount.visibility= View.VISIBLE
+                fabHome.show()
+                fabHome.visibility= View.VISIBLE
 
-            fabAdd.setImageDrawable(resources.getDrawable(R.drawable.cancel))
-            fabVisibility = true
-        }else{
-            fabAccount.hide()
-            fabAccount.visibility= View.GONE
-            fabHome.hide()
-            fabHome.visibility= View.GONE
+                fabAdd.setImageDrawable(resources.getDrawable(R.drawable.cancel))
+                fabVisibility = true
+            }else{
+                fabAccount.hide()
+                fabAccount.visibility= View.GONE
+                fabHome.hide()
+                fabHome.visibility= View.GONE
 
-            fabAdd.setImageDrawable(resources.getDrawable(R.drawable.add))
-            fabVisibility = false
+                fabAdd.setImageDrawable(resources.getDrawable(R.drawable.add))
+                fabVisibility = false
+            }
         }
 
         fabHome.setOnClickListener {

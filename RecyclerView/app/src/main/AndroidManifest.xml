@@ -16,7 +16,7 @@
         android:theme="@style/Theme.RecyclerView"
         tools:targetApi="31">
         <activity
-            android:name=".fabActivity"
+            android:name=".BottomNav"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,14 +24,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".BoundService"
-            android:exported="false">
 
+        <activity
+            android:name=".fabActivity"
+            android:exported="false">
         </activity>
         <activity
-            android:name=".ForegroundServices"
+            android:name=".BoundService"
             android:exported="false"></activity>
+        <activity
+            android:name=".ForegroundServices"
+            android:exported="false" />
         <activity
             android:name=".UnBoundServices"
             android:exported="false" />
