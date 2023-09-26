@@ -2,6 +2,7 @@ package com.example.recyclerview.UNIT_4
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -40,7 +41,11 @@ class Db_Sql : AppCompatActivity() {
         }
 
         btnPrintData.setOnClickListener {
-
+            val db = Db_Sql_Demo(this, null)
+            val data = db.getData()
+            Log.d("getData() status","Data: $data")
+            println(data)
+            Toast.makeText(this, "Data: $data", Toast.LENGTH_SHORT).show()
         }
     }
 }
