@@ -16,8 +16,11 @@
         android:theme="@style/Theme.RecyclerView"
         tools:targetApi="31">
         <activity
+            android:name=".UNIT_4.Db_Sql"
+            android:exported="false" />
+        <activity
             android:name=".CardViewTask"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,12 +29,10 @@
         </activity>
         <activity
             android:name=".BottomNav"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".fabActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".BoundService"
             android:exported="false" />

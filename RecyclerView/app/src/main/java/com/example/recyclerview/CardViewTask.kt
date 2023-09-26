@@ -3,6 +3,7 @@ package com.example.recyclerview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class CardViewTask : AppCompatActivity() {
@@ -14,6 +15,9 @@ class CardViewTask : AppCompatActivity() {
         setContentView(R.layout.activity_card_view_task)
 
         rcyView = findViewById(R.id.rcyView)
+        val layoutManager = LinearLayoutManager(this)
+        rcyView.layoutManager = layoutManager
+
         arrList.add(CardViewDataModel(R.drawable.profile,"Mark","+14045958879"))
         arrList.add(CardViewDataModel(R.drawable.profile,"Jack","+14045958879"))
         arrList.add(CardViewDataModel(R.drawable.profile,"Daniel","+14045958879"))
