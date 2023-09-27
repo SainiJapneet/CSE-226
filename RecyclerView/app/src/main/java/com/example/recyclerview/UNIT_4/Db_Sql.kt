@@ -1,5 +1,6 @@
 package com.example.recyclerview.UNIT_4
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +18,7 @@ class Db_Sql : AppCompatActivity() {
     lateinit var btnPrintData: Button
     lateinit var txtNameDb: TextView
     lateinit var txtAgeDb: TextView
+    @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_db_sql)
@@ -42,10 +44,17 @@ class Db_Sql : AppCompatActivity() {
 
         btnPrintData.setOnClickListener {
             val db = Db_Sql_Demo(this, null)
-            val data = db.getData()
-            Log.d("getData() status","Data: $data")
-            println(data)
-            Toast.makeText(this, "Data: $data", Toast.LENGTH_SHORT).show()
+            val cursor = db.getData()
+            txtNameDb.text = "Name \n\n"
+            txtAgeDb.text = "Age \n\n"
+            cursor!!.moveToFirst()
+            txtNameDb.append(cursor.getString(cursor.getColumnIndex(Db_Sql_Demo.NAME_COL)) + "\n")
+            txtAgeDb.append(cursor.getString(cursor.getColumnIndex(Db_Sql_Demo.AGE_COL)) + "\n")
+            while (cursor.moveToNext()){
+                txtNameDb.append(cursor.getString(cursor.getColumnIndex(Db_Sql_Demo.NAME_COL)) + "\n")
+                txtAgeDb.append(cursor.getString(cursor.getColumnIndex(Db_Sql_Demo.AGE_COL)) + "\n")
+            }
+            cursor.close()
         }
     }
 }
