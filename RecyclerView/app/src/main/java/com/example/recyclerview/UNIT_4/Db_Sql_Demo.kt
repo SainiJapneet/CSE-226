@@ -33,9 +33,24 @@ class Db_Sql_Demo(context: Context, factory: SQLiteDatabase.CursorFactory?): SQL
         db.close()
     }
 
+    fun updateData(name: String, age: String){
+        val values = ContentValues()
+        values.put(NAME_COL,name)
+        values.put(AGE_COL,age)
+
+        val db = this.writableDatabase
+        db.update(TABLE_NAME, values, "WHERE " + AGE_COL +" > 60", null)
+        db.close()
+    }
+
+    fun deleteData(){
+        val db = this.writableDatabase
+        db.delete(TABLE_NAME, "WHERE " + AGE_COL + " > 60", null)
+        db.close()
+    }
     fun getData(): Cursor?{
         val db = this.readableDatabase
-
+        //return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + AGE_COL + " > 25", null)
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null)
     }
     //companion object: all the properties mentioned here are linked to class itself rather than a single instance of the class
