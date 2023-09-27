@@ -37,9 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Add Data"
         android:backgroundTint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Add Data"
+        app:layout_constraintEnd_toStartOf="@+id/btnPrintData"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtAge" />
 
@@ -47,39 +47,38 @@
         android:id="@+id/btnPrintData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/black"
         android:text="Print Data"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDelete" />
+        app:layout_constraintStart_toEndOf="@+id/btnAddData"
+        app:layout_constraintTop_toBottomOf="@+id/edtAge" />
 
     <TextView
         android:id="@+id/txtNameDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text=""
         android:padding="8dp"
+        android:text=""
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/txtAgeDB"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPrintData" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdate" />
 
     <TextView
         android:id="@+id/txtAgeDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text=""
         android:padding="8dp"
+        android:text=""
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtNameDB"
-        app:layout_constraintTop_toBottomOf="@+id/btnPrintData" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDelete" />
 
     <Button
         android:id="@+id/btnUpdate"
@@ -88,7 +87,7 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/black"
         android:text="Update Data"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDelete"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAddData" />
 
@@ -100,6 +99,6 @@
         android:backgroundTint="@color/black"
         android:text="Delete Data"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUpdate" />
+        app:layout_constraintStart_toEndOf="@+id/btnUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/btnPrintData" />
 </androidx.constraintlayout.widget.ConstraintLayout>
