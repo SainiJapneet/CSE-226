@@ -39,13 +39,13 @@ class Db_Sql_Demo(context: Context, factory: SQLiteDatabase.CursorFactory?): SQL
         values.put(AGE_COL,age)
 
         val db = this.writableDatabase
-        db.update(TABLE_NAME, values, "WHERE " + AGE_COL +" > 60", null)
+        db.update(TABLE_NAME, values, AGE_COL + " > ?", arrayOf("60"))
         db.close()
     }
 
     fun deleteData(){
         val db = this.writableDatabase
-        db.delete(TABLE_NAME, "WHERE " + AGE_COL + " > 60", null)
+        db.delete(TABLE_NAME, AGE_COL + " > ?", arrayOf("60"))
         db.close()
     }
     fun getData(): Cursor?{
