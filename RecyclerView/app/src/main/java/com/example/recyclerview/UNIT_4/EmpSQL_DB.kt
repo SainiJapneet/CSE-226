@@ -60,7 +60,7 @@ class EmpSQL_DB : AppCompatActivity() {
 
         btnRetrieve.setOnClickListener {
             val db = EmpSQL_DB_Demo(this, null)
-            val cursor = db.printEmp()
+            val cursor = db.printEmp(edtSalary.text.toString(), edtExperience.text.toString())
             txtID.text = "ID \n\n"
             txtName.text = "Name \n\n"
             txtSalary.text = "Age \n\n"

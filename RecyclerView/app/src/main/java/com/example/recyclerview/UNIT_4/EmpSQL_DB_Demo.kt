@@ -39,9 +39,9 @@ class EmpSQL_DB_Demo(context: Context, factory: SQLiteDatabase.CursorFactory?):S
         db.close()
     }
 
-    fun printEmp(): Cursor?{
+    fun printEmp(salary: String?, exp: String?): Cursor?{
         val db = this.readableDatabase
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null)
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + SALARY_COL + " <= " + salary + " AND " + EXPERIENCE_COl + " >= " + exp  , null)
     }
 
     companion object{
