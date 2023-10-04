@@ -41,6 +41,26 @@ class EmpSQL_DB : AppCompatActivity() {
         txtSalary = findViewById(R.id.txtEmpSalary)
         txtExperience = findViewById(R.id.txtEmpExperience)
 
+        fun retrieveData(salary: String?, exp: String?){
+            val db = EmpSQL_DB_Demo(this, null)
+            val cursor = db.printEmp(salary, exp)
+            txtID.text = "ID \n\n"
+            txtName.text = "Name \n\n"
+            txtSalary.text = "Age \n\n"
+            txtExperience.text = "Experience \n\n"
+            cursor!!.moveToFirst()
+            txtID.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.ID_COL)) + "\n")
+            txtName.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.NAME_COL)) + "\n")
+            txtSalary.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.SALARY_COL)) + "\n")
+            txtExperience.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.EXPERIENCE_COl)) + "\n")
+            while (cursor.moveToNext()){
+                txtID.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.ID_COL)) + "\n")
+                txtName.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.NAME_COL)) + "\n")
+                txtSalary.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.SALARY_COL)) + "\n")
+                txtExperience.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.EXPERIENCE_COl)) + "\n")
+            }
+            cursor.close()
+        }
         btnCreate.setOnClickListener {
             val db = EmpSQL_DB_Demo(this, null)
 
@@ -59,34 +79,32 @@ class EmpSQL_DB : AppCompatActivity() {
         }
 
         btnRetrieve.setOnClickListener {
-            val db = EmpSQL_DB_Demo(this, null)
-            val cursor = db.printEmp(edtSalary.text.toString(), edtExperience.text.toString())
-            txtID.text = "ID \n\n"
-            txtName.text = "Name \n\n"
-            txtSalary.text = "Age \n\n"
-            txtExperience.text = "Experience \n\n"
-            cursor!!.moveToFirst()
-            txtID.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.ID_COL)) + "\n")
-            txtName.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.NAME_COL)) + "\n")
-            txtSalary.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.SALARY_COL)) + "\n")
-            txtExperience.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.EXPERIENCE_COl)) + "\n")
-            while (cursor.moveToNext()){
-                txtID.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.ID_COL)) + "\n")
-                txtName.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.NAME_COL)) + "\n")
-                txtSalary.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.SALARY_COL)) + "\n")
-                txtExperience.append(cursor.getString(cursor.getColumnIndex(EmpSQL_DB_Demo.EXPERIENCE_COl)) + "\n")
-            }
-            cursor.close()
+           retrieveData(edtSalary.text.toString(),edtExperience.text.toString())
         }
 
         btnUpdate.setOnClickListener {
-
+            val db = EmpSQL_DB_Demo(this, null)
+            val id = edtID.text.toString()
+            val name = edtName.text.toString()
+            val salary = edtSalary.text.toString()
+            val exp = edtExperience.text.toString()
+            db.updateEmp(id,name,salary, exp)
+            edtID.setText("")
+            edtName.setText("")
+            edtSalary.setText("")
+            edtExperience.setText("")
+            retrieveData("","")
         }
 
         btnDelete.setOnClickListener {
-
+            val db = EmpSQL_DB_Demo(this, null)
+            db.deleteEmp(edtID.text.toString())
+            edtID.setText("")
+            edtName.setText("")
+            edtSalary.setText("")
+            edtExperience.setText("")
+            retrieveData("","")
         }
-
 
     }
 }
