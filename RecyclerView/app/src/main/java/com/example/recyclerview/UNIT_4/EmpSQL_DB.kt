@@ -75,6 +75,7 @@ class EmpSQL_DB : AppCompatActivity() {
             edtExperience.setText("")
 
             db.addEmp(id, name, salary, exp)
+            retrieveData("","")
             Toast.makeText(this,"Emp created",Toast.LENGTH_SHORT).show()
         }
 
