@@ -3,6 +3,7 @@ package com.example.recyclerview.CA2
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -27,7 +28,6 @@ class StudentActivity : AppCompatActivity() {
     lateinit var btnDisplay: Button
     lateinit var lstView: ListView
     lateinit var database: StudentDatabase
-    private var adapter: MyAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student)
@@ -59,50 +59,32 @@ class StudentActivity : AppCompatActivity() {
         }
 
         lstView.setOnItemClickListener { parent, view, position, id ->
-            val selectedItem: StudentModel? = adapter?.getItem(position)
 
             val view = parent.get(position)
             val status = view.findViewById<TextView>(R.id.txtStatus).text.toString()
             if(status.equals("Pending")){
-                var id = 0L
-                var name = ""
-                var hostelFee = 0F
-                var semFee = 0F
-                var messFee = 0F
+                var id = view.findViewById<TextView>(R.id.txtID).text.toString().toLong()
+                var name = view.findViewById<TextView>(R.id.txtName).text.toString()
+                var hostelFee = view.findViewById<TextView>(R.id.txtHostelFee).text.toString().toFloat()
+                var semFee = view.findViewById<TextView>(R.id.txtSemFee).text.toString().toFloat()
+                var messFee = view.findViewById<TextView>(R.id.txtMessFee).text.toString().toFloat()
 
-                if(selectedItem != null){
-                    id = selectedItem.id
-                    name = selectedItem.name
-                    hostelFee = selectedItem.hostelFee
-                    semFee = selectedItem.semFee
-                    messFee = selectedItem.messFee
-                }
 
                 var builder = AlertDialog.Builder(this)
                 builder.setTitle("Pay Fee")
                 var linearLayout = LinearLayout(this)
                 linearLayout.orientation = LinearLayout.VERTICAL
 
-                val txtHostelFee = TextView(this)
-                txtHostelFee.textSize = 18F
-                txtHostelFee.setText("Hostel Fee : $hostelFee")
-                val txtSemFee = TextView(this)
-                txtSemFee.setText("Semester Fee : $semFee")
-                txtSemFee.textSize = 18F
-                val txtMessFee = TextView(this)
-                txtMessFee.setText("Mess Fee : $messFee")
-                txtMessFee.textSize = 18F
+
 
                 val edtHostelFee = EditText(this)
-                edtHostelFee.hint = "Pay Hostel Fee"
+                edtHostelFee.hint = "Hostel Fee"
                 val edtSemFee = EditText(this)
-                edtSemFee.hint = "Pay Sem Fee"
+                edtSemFee.hint = "Sem Fee"
                 val edtMessFee = EditText(this)
-                edtMessFee.hint = "Pay Mess Fee"
+                edtMessFee.hint = "Mess Fee"
 
-                linearLayout.addView(txtHostelFee)
-                linearLayout.addView(txtSemFee)
-                linearLayout.addView(txtMessFee)
+
                 linearLayout.addView(edtHostelFee)
                 linearLayout.addView(edtSemFee)
                 linearLayout.addView(edtMessFee)
@@ -146,6 +128,44 @@ class StudentActivity : AppCompatActivity() {
                 Toast.makeText(this,"Fee already paid",Toast.LENGTH_SHORT).show()
             }
         }
+
+        lstView.setOnItemLongClickListener { parent, view, position, id ->
+            val view = parent.get(position)
+            val status = view.findViewById<TextView>(R.id.txtStatus).text.toString()
+            if(status.equals("Pending")){
+                Toast.makeText(this,"Pay whole fee to generate receipt",Toast.LENGTH_LONG).show()
+            }else{
+                var id = view.findViewById<TextView>(R.id.txtID).text.toString().toLong()
+                var name = view.findViewById<TextView>(R.id.txtName).text.toString()
+
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Payment Receipt")
+
+                val linearLayout = LinearLayout(this)
+                linearLayout.orientation = LinearLayout.VERTICAL
+                linearLayout.gravity = Gravity.CENTER
+                val padding = resources.getDimensionPixelSize(androidx.constraintlayout.widget.R.dimen.abc_action_button_min_width_material)
+
+                val txtName = TextView(this)
+                txtName.text = "Name: $name"
+                val txtID = TextView(this)
+                txtID.text = "ID: $id"
+                val txtFee = TextView(this)
+                txtFee.text = "Fee Status : PAID"
+                txtFee.textSize = 20F
+
+                linearLayout.addView(txtID)
+                linearLayout.addView(txtName)
+                linearLayout.addView(txtFee)
+
+                builder.setView(linearLayout)
+                builder.setPositiveButton("OK", null)
+                val dialog = builder.create()
+                dialog.show()
+            }
+            return@setOnItemLongClickListener true
+        }
+
     }
 
     fun displayData(){
