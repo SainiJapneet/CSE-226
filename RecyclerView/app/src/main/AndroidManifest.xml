@@ -16,8 +16,27 @@
         android:theme="@style/Theme.RecyclerView"
         tools:targetApi="31">
         <activity
+            android:name=".CA2.StudentActivity"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
             android:name=".UNIT_4.PlacementPortal.PlacementPortalActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".UNIT_4.RoomDatabase.RoomDatabase"
             android:exported="true">
