@@ -14,6 +14,6 @@ class WebViewActivity2 : AppCompatActivity() {
         webView2 = findViewById(R.id.webView2)
         val webSettings: WebSettings = webView2.getSettings()
         webSettings.javaScriptEnabled = true
-        webView2.loadUrl("https://tryhackme.com/")
+        webView2.loadUrl("https://www.onlinegdb.com/")
     }
 }

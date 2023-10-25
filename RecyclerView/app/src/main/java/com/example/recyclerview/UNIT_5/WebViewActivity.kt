@@ -17,7 +17,7 @@ class WebViewActivity : AppCompatActivity() {
                 "<h2>Hello World</h2><h3>Hello World</h3>" +
                 "<p>Static HTML Content.</p>"+
                 "</body>" +
-                "<script>alert()</script></html>"
+                "<script>alert(\"Warning\");</script></html>"
         webView.loadData(customHTML, "text/html","UTF-8")
     }
 }
