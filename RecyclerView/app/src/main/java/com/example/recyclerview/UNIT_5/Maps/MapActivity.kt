@@ -8,6 +8,7 @@ import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
@@ -28,8 +29,11 @@ class MapActivity : AppCompatActivity() {
     lateinit var txtLocality: TextView
     lateinit var txtAddress: TextView
     lateinit var btnGetLocation: Button
+    lateinit var btnGetOnMaps: Button
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private val permissionId = 2
+    var longitude = ""
+    var latitude = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
@@ -39,10 +43,17 @@ class MapActivity : AppCompatActivity() {
         txtLocality = findViewById(R.id.txtLocality)
         txtAddress = findViewById(R.id.txtAddress)
         btnGetLocation =findViewById(R.id.btnGetLocation)
+        btnGetOnMaps = findViewById(R.id.btnGetOnMaps)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         btnGetLocation.setOnClickListener {
             getLocation()
+        }
+        btnGetOnMaps.setOnClickListener {
+
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=${latitude},${longitude}"))
+            intent.setPackage("com.google.android.apps.maps")
+            startActivity(intent)
         }
 
     }
@@ -54,6 +65,8 @@ class MapActivity : AppCompatActivity() {
                     location: Location? -> location?.let{
                         val geocoder = Geocoder(this, Locale.getDefault())
                         val list: List<Address> = geocoder.getFromLocation(location.latitude,location.latitude, 1)!!
+                        longitude = "${list[0].longitude}"
+                        latitude = "${list[0].latitude}"
                         txtLatitude.text = "Latitude\n ${list[0].latitude}"
                         txtLongitude.text = "Longitude\n ${list[0].longitude}"
                         txtCountry.text = "Country\n ${list[0].countryName}"

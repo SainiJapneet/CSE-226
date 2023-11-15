@@ -96,7 +96,7 @@ open class RoomDatabase : AppCompatActivity() {
 
     }
     fun getData(view: View){
-        database.contactDAO().getContact().observe(this){
+            database.contactDAO().getContact().observe(this){
             val adapter = MyAdapter(this, R.layout.custom_layout_room_db,it)
             lstViewDB.adapter = adapter
         }

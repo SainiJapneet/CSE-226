@@ -6,9 +6,9 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.REQUEST_COMPANION_START_FOREGROUND_SERVICES_FROM_BACKGROUND" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -20,8 +20,23 @@
         android:theme="@style/Theme.RecyclerView"
         tools:targetApi="31">
         <activity
+            android:name=".UNIT_6.Testing.UtilTest"
+            android:exported="false" />
+        <activity
+            android:name=".UNIT_5.GeoCoding.ReversesGeoCoding"
+            android:exported="false" />
+        <activity
+            android:name=".UNIT_5.GeoCoding.GeoCoding"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".UNIT_5.Maps.MapActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,7 +54,7 @@
         </activity>
         <activity
             android:name=".UNIT_5.WebViewActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".CA2.StudentActivity"
             android:exported="true">
