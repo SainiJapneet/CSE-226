@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_2
 
 import android.app.ProgressDialog
 import android.graphics.Bitmap
@@ -8,8 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.ProgressBar
-import androidx.appcompat.app.AlertDialog
+import com.example.recyclerview.R
 import java.io.IOException
 import java.io.InputStream
 import java.net.HttpURLConnection

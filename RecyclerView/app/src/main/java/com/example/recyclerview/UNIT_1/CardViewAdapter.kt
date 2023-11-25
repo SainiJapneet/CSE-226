@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_1
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CardViewAdapter(var context: Context?, var list: ArrayList<CardViewDataModel>): RecyclerView.Adapter<CardViewAdapter.DataHolder>(){

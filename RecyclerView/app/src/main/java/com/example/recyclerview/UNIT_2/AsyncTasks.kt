@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_2
 
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.recyclerview.R
 
 class AsyncTasks : AppCompatActivity() {
     lateinit var lstView: ListView

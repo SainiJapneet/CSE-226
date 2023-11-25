@@ -1,7 +1,8 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.recyclerview.R
 
 class BottomNav : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

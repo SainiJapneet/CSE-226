@@ -1,10 +1,10 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ListView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.R
 
 class MainActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView

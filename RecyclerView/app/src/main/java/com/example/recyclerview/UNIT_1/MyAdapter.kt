@@ -1,10 +1,11 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_1
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.R
 
 class MyAdapter(var list:List<MyDataModel>): RecyclerView.Adapter<MyAdapter.DataHolder>() {
 

@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_1
 
 class MyDataModel(title: String?, genre: String?, year: String?) {
     private var title: String

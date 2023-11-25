@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_1
 
 import android.content.Context
 import android.graphics.Color
@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.R
 import com.example.recyclerview.R.layout.grid_demo_layout
 
 class GridAdapter(var ctx:Context,var list: ArrayList<GridModel>): RecyclerView.Adapter<GridAdapter.DataHolder>() {

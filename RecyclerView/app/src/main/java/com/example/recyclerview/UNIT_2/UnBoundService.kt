@@ -1,11 +1,12 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_2
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.recyclerview.R
 
-class UnBoundServices : AppCompatActivity() {
+class UnBoundService : AppCompatActivity() {
     lateinit var btnStart: Button
     lateinit var btnStop: Button
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,10 +15,10 @@ class UnBoundServices : AppCompatActivity() {
         btnStart = findViewById(R.id.btnStart)
         btnStop = findViewById(R.id.btnStop)
         btnStart.setOnClickListener {
-            startService(Intent(this,MyUnBoundServices::class.java))
+            startService(Intent(this, UnBoundServiceDemo::class.java))
         }
         btnStop.setOnClickListener {
-            stopService(Intent(this,MyUnBoundServices::class.java))
+            stopService(Intent(this, UnBoundServiceDemo::class.java))
         }
 
     }

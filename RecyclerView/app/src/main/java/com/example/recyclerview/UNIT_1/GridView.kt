@@ -1,12 +1,12 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_1
 
-import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.R
 
 class GridView : AppCompatActivity() {
     lateinit var recyclerView2: RecyclerView

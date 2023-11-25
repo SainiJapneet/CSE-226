@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_2
 
 
 import android.app.NotificationChannel
@@ -8,11 +8,10 @@ import android.app.Service
 import android.content.Intent
 import android.os.Build
 import android.os.IBinder
-import android.widget.Toast
 import androidx.core.app.NotificationCompat
-import java.lang.Error
+import com.example.recyclerview.R
 
-class MyForegroundServices: Service() {
+class ForegroundServiceDemo: Service() {
 
     private val channelId = "Foreground Service using Kotlin"
 
@@ -21,7 +20,7 @@ class MyForegroundServices: Service() {
         val input = intent?.getStringExtra("inputExtra")
 
         createNotificationChannel()
-        val notificationIntent = Intent(this, ForegroundServices::class.java)
+        val notificationIntent = Intent(this, ForegroundService::class.java)
         val pendingIntent = PendingIntent.getActivity(
             this, 0, notificationIntent,
             PendingIntent.FLAG_IMMUTABLE

@@ -3,7 +3,6 @@ package com.example.recyclerview.UNIT_4.RoomDatabase
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings.Global
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -14,7 +13,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.get
 import androidx.room.Room
-import com.example.recyclerview.MyAdapter
 import com.example.recyclerview.R
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

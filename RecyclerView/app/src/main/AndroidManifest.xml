@@ -95,7 +95,7 @@
             android:name=".UNIT_4.Db_Sql"
             android:exported="false" />
         <activity
-            android:name=".CardViewTask"
+            android:name=".UNIT_1.CardViewTask"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -104,35 +104,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BottomNav"
+            android:name=".UNIT_3.BottomNav"
             android:exported="false" />
         <activity
-            android:name=".fabActivity"
+            android:name=".UNIT_3.fabActivity"
             android:exported="false" />
         <activity
-            android:name=".BoundService"
+            android:name=".UNIT_2.BoundService"
             android:exported="false" />
         <activity
-            android:name=".ForegroundServices"
+            android:name=".UNIT_2.ForegroundService"
             android:exported="false" />
         <activity
-            android:name=".UnBoundServices"
+            android:name=".UNIT_2.UnBoundService"
             android:exported="false" />
         <activity
-            android:name=".AsyncTaskImgDownload"
+            android:name=".UNIT_2.AsyncTaskImgDownload"
             android:exported="false" />
         <activity
-            android:name=".AsyncTasks"
+            android:name=".UNIT_2.AsyncTasks"
             android:exported="false" />
         <activity
-            android:name=".GridView"
+            android:name=".UNIT_1.GridView"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".UNIT_1.MainActivity"
             android:exported="false" />
 
-        <service android:name=".MyUnBoundServices" />
-        <service android:name=".MyForegroundServices" />
+        <service android:name=".UNIT_2.UnBoundServiceDemo" />
+        <service android:name=".UNIT_2.ForegroundServiceDemo" />
     </application>
 
 </manifest>

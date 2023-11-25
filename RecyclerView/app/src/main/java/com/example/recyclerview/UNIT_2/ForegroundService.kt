@@ -1,12 +1,13 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_2
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.core.content.ContextCompat
+import com.example.recyclerview.R
 
-class ForegroundServices : AppCompatActivity() {
+class ForegroundService : AppCompatActivity() {
 
     lateinit var btnStartService:Button
     lateinit var btnStopService: Button
@@ -18,13 +19,13 @@ class ForegroundServices : AppCompatActivity() {
         btnStopService = findViewById(R.id.btnStopBound)
 
         btnStartService.setOnClickListener {
-            val intent = Intent(this,MyForegroundServices::class.java)
+            val intent = Intent(this, ForegroundServiceDemo::class.java)
             intent.putExtra("inputExtra","Foreground service in progress")
             ContextCompat.startForegroundService(this,intent)
         }
 
         btnStopService.setOnClickListener {
-            val intent = Intent(this,MyForegroundServices::class.java)
+            val intent = Intent(this, ForegroundServiceDemo::class.java)
             stopService(intent)
         }
     }

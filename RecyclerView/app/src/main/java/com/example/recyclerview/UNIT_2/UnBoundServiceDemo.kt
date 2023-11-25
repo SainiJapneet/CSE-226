@@ -1,11 +1,11 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_2
 
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.IBinder
 import android.provider.Settings
 
-class MyUnBoundServices: android.app.Service(){
+class UnBoundServiceDemo: android.app.Service(){
     lateinit var mediaPlayer: MediaPlayer
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         mediaPlayer = MediaPlayer.create(this,Settings.System.DEFAULT_RINGTONE_URI)

@@ -1,17 +1,14 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_2
 
 import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import android.os.IInterface
-import android.os.Parcel
 import android.os.SystemClock
 import android.util.Log
 import android.widget.Chronometer
-import java.io.FileDescriptor
 
-class MyBoundService: Service() {
+class BoundServiceDemo: Service() {
 
     private val LOG_TAG = "BoundService"
     private val mBinder: IBinder = MyBinder()
@@ -52,8 +49,8 @@ class MyBoundService: Service() {
     }
 
     inner class MyBinder: Binder(){
-        fun getService(): MyBoundService{
-            return this@MyBoundService
+        fun getService(): BoundServiceDemo {
+            return this@BoundServiceDemo
         }
     }
 }

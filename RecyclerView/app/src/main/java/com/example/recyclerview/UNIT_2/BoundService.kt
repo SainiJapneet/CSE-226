@@ -1,14 +1,10 @@
-package com.example.recyclerview
+package com.example.recyclerview.UNIT_2
 
-import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
-import android.content.ServiceConnection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.IBinder
 import android.widget.Button
 import android.widget.TextView
+import com.example.recyclerview.R
 
 
 class BoundService : AppCompatActivity() {
@@ -17,7 +13,7 @@ class BoundService : AppCompatActivity() {
     lateinit var btnPrintTime: Button
     lateinit var btnStopBound: Button
 
-    var mBoundService: MyBoundService? = null
+    var mBoundService: BoundServiceDemo? = null
     var mServiceBound = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
