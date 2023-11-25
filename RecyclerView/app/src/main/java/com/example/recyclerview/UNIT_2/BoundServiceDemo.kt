@@ -12,11 +12,12 @@ class BoundServiceDemo: Service() {
 
     private val LOG_TAG = "BoundService"
     private val mBinder: IBinder = MyBinder()
-    private val mChronometer: Chronometer? = null
+    private var mChronometer: Chronometer? = null
     override fun onCreate() {
         super.onCreate()
         Log.v(LOG_TAG,"in onCreate()")
-        mChronometer!!.setBase(SystemClock.elapsedRealtime())
+        mChronometer = Chronometer(this)
+        mChronometer!!.base = SystemClock.elapsedRealtime()
         mChronometer!!.start()
     }
     override fun onBind(intent: Intent?): IBinder? {
